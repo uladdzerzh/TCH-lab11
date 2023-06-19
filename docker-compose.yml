@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile_nginx
     ports:
-      - 6666:80
+      - 6060:80
     networks:
       - backend
       - frontend
