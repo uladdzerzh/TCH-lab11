@@ -1,0 +1,9 @@
+FROM nginx:1.25.0
+#kopiowanie konfiguracji serwera
+COPY ./nginx_conf/default.conf /etc/nginx/conf.d/
+
+#Wystawiene portu
+EXPOSE 80
+
+ENTRYPOINT [ "nginx" ]
+CMD [ "-g", "daemon off;" ]

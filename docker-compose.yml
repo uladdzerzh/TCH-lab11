@@ -1,0 +1,47 @@
+version: "3.2"
+
+services:
+  nginx:
+    build: 
+      context: .
+      dockerfile: Dockerfile_nginx
+    ports:
+      - 6666:80
+    networks:
+      - backend
+      - frontend
+
+  phpfpm:
+    tty: true # wazne dla docker-compose logs
+    image: docker.io/bitnami/php-fpm 
+    volumes:
+      - ./DocumentRoot:/app #bind mount - kod php serwera
+    networks:
+      - backend
+
+  mysql:
+    image: mysql #obraz z dockerhub
+    volumes:
+      - mysql-volume:/var/lib/mysql #wolumen
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root' 
+    
+  phpmyadmin:
+    image: phpmyadmin #obraz z dockerhub
+    links:
+      - 'mysql:db'
+    ports:
+      - 6001:80
+    networks:
+      - backend
+
+networks: #tworzenie sieci
+  backend:  
+    driver: bridge  
+  frontend:
+    driver: bridge
+
+volumes:
+  mysql-volume: #tworzenie wolumenu
