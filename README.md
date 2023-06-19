@@ -12,7 +12,5 @@ nginx oraz php-fpm:
 phpmyadmin:
 ![image](https://github.com/uladdzerzh/TCH-lab11/assets/61791586/6408da75-f55a-4496-9525-70eb9b6c7fb5)
 
-
 bazy danych:
-
-
+![image](https://github.com/uladdzerzh/TCH-lab11/assets/61791586/a528ef1e-44d3-4f16-889c-9a105e7b820f)
